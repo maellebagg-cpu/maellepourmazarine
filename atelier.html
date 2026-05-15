@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mon atelier — Maëlle Baglin pour Mazarine</title>
+  <meta name="description" content="Outils maîtrisés et compétences en direction artistique de Maëlle Baglin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+
+  <header class="nav" data-nav>
+    <div class="container nav__inner">
+      <a href="index.html" class="nav__brand">Maëlle Baglin</a>
+
+      <button class="nav__burger" data-nav-burger aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav__list">
+        <li><a class="nav__link" href="index.html">Accueil</a></li>
+        <li><a class="nav__link" href="a-propos.html">À propos</a></li>
+        <li><a class="nav__link is-active" href="atelier.html">Mon atelier</a></li>
+        <li><a class="nav__link" href="etudes-de-cas.html">Étude de cas</a></li>
+        <li><a class="nav__link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Basculer dark / light mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"/>
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="atelier-hero">
+      <div class="container atelier-hero__inner">
+        <h1 class="atelier-hero__title">Mon atelier.</h1>
+      </div>
+    </section>
+
+    <section class="section section--logos" id="logos">
+      <div class="container">
+        <p class="logos__title label reveal">Mes outils favoris</p>
+      </div>
+      <hr class="logos__divider" aria-hidden="true" />
+      <div class="logo-loop reveal" aria-label="Outils maîtrisés">
+        <div class="logo-loop__track">
+          <div class="logo-loop__item"><img src="assets/logos/adobephotoshop.svg" alt="Photoshop" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/adobeindesign.svg" alt="InDesign" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/adobexd.svg" alt="Adobe XD" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/adobelightroom.svg" alt="Lightroom" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/adobepremierepro.svg" alt="Premiere Pro" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/adobeaftereffects.svg" alt="After Effects" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/figma.svg" alt="Figma" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobephotoshop.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobeindesign.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobexd.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobelightroom.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobepremierepro.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobeaftereffects.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/figma.svg" alt="" /></div>
+        </div>
+      </div>
+      <hr class="logos__divider" aria-hidden="true" />
+    </section>
+
+    <section class="section section--louvre" id="louvre">
+      <div class="louvre" data-louvre>
+        <div class="louvre__pin">
+          <div class="container louvre__inner">
+            <div class="louvre__media">
+              <span class="louvre__counter" aria-hidden="true"><strong data-louvre-counter>01</strong> / 03</span>
+              <div class="louvre__stack" data-louvre-stack data-active="0" role="button" tabindex="0" aria-label="Cliquez pour voir l'écran suivant">
+                <figure class="louvre__card" data-step="0">
+                  <img src="assets/images/atelier/louvre-1.png" alt="Maquette Louvre — écran 1" loading="lazy" />
+                </figure>
+                <figure class="louvre__card" data-step="1">
+                  <img src="assets/images/atelier/louvre-2.png" alt="Maquette Louvre — écran 2" loading="lazy" />
+                </figure>
+                <figure class="louvre__card" data-step="2">
+                  <img src="assets/images/atelier/louvre-3.png" alt="Maquette Louvre — écran 3" loading="lazy" />
+                </figure>
+              </div>
+              <p class="louvre__status">Maquette Figma en cours de développement</p>
+            </div>
+            <div class="louvre__text">
+              <p class="label reveal">Application mobile</p>
+              <h2 class="reveal">Développement application pour le Louvre.</h2>
+              <p class="louvre__hint reveal">Cliquez sur la maquette pour parcourir les écrans.</p>
+              <div class="prose reveal">
+                <p>Ce projet de refonte du musée du Louvre s'appuie sur une approche UX centrée sur la fluidité du parcours utilisateur, transformant une interface initialement dense en une expérience immersive et intuitive.</p>
+                <p>En application, cette stratégie se traduit par une simplification drastique de l'architecture d'information et l'intégration de codes visuels minimalistes et prestigieux, visant à réduire la charge cognitive tout en respectant l'image de l'institution.</p>
+                <p>L'application mobile se distingue du site par des fonctionnalités complémentaires conçues pour l'accompagnement physique : elle propose une billetterie dématérialisée avec QR Code, un système de géolocalisation interactive pour s'orienter dans les galeries, ainsi qu'un mode <em>compagnon de visite</em> offrant des contenus audio et des parcours thématiques personnalisés en temps réel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--dark" id="realisations">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="label reveal">Réalisations</p>
+          <h2 class="reveal">Quelques travaux.</h2>
+        </header>
+      </div>
+      <p class="gallery-cue reveal">Scrollez</p>
+      <div class="gallery" data-gallery>
+        <div class="gallery__sticky">
+          <div class="particles" data-particles aria-hidden="true"></div>
+          <div class="gallery__scene" data-gallery-scene>
+            <article class="gallery-card gallery-card--video" data-side="left" data-z="-800" style="--z: -800px; --rotation: 22deg;">
+              <div class="gallery-card__media">
+                <video src="assets/videos/basique-1000-minutes.mov" muted loop autoplay playsinline preload="metadata"></video>
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Basique 1000 Minutes</h3>
+                <p class="gallery-card__role">Captation vidéo · 2024</p>
+              </div>
+            </article>
+            <article class="gallery-card" data-side="right" data-z="-1800" style="--z: -1800px; --rotation: -22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/le-nil.png" alt="Couverture du magazine Le Nil" loading="lazy" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Le Nil</h3>
+                <p class="gallery-card__role">Couverture magazine · 2024</p>
+              </div>
+            </article>
+            <article class="gallery-card" data-side="left" data-z="-2800" style="--z: -2800px; --rotation: 22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/pizza-hut.png" alt="Flyer Pizza Hut" loading="lazy" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Pizza Hut</h3>
+                <p class="gallery-card__role">Flyer A5 · 2024</p>
+              </div>
+            </article>
+            <article class="gallery-card gallery-card--video" data-side="right" data-z="-3800" style="--z: -3800px; --rotation: -22deg;">
+              <div class="gallery-card__media">
+                <video src="assets/videos/basique-session.mov" muted loop autoplay playsinline preload="metadata"></video>
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Basique — Session</h3>
+                <p class="gallery-card__role">Captation vidéo · 2024</p>
+              </div>
+            </article>
+            <article class="gallery-card gallery-card--photo" data-side="left" data-z="-4800" style="--z: -4800px; --rotation: 22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/portrait-intime.jpg" alt="Portrait intimiste" loading="lazy" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Intime</h3>
+                <p class="gallery-card__role">Photographie · portrait</p>
+              </div>
+            </article>
+            <article class="gallery-card" data-side="right" data-z="-5800" style="--z: -5800px; --rotation: -22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/wwf-bretagne.png" alt="Affiche Respecte-la comme ta mère, WWF Région Bretagne" loading="lazy" style="object-fit: contain; object-position: center bottom;" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Respecte-la comme ta mère</h3>
+                <p class="gallery-card__role">Campagne WWF · Région Bretagne · 2024</p>
+              </div>
+            </article>
+            <article class="gallery-card gallery-card--photo" data-side="left" data-z="-6800" style="--z: -6800px; --rotation: 22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/concert.jpg" alt="Photographie de concert" loading="lazy" style="object-fit: cover; object-position: center 78%;" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Scène</h3>
+                <p class="gallery-card__role">Photographie · concert</p>
+              </div>
+            </article>
+            <article class="gallery-card" data-side="right" data-z="-7800" style="--z: -7800px; --rotation: -22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/la-provenza.png" alt="Affiche La Provenza" loading="lazy" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">La Provenza</h3>
+                <p class="gallery-card__role">Affiche événementielle · 2025</p>
+              </div>
+            </article>
+            <article class="gallery-card gallery-card--photo" data-side="left" data-z="-8800" style="--z: -8800px; --rotation: 22deg;">
+              <div class="gallery-card__media">
+                <img src="assets/images/atelier/cv-adidas.jpg" alt="Affiche Adidas Originals" loading="lazy" />
+              </div>
+              <div class="gallery-card__meta">
+                <h3 class="gallery-card__title">Affiche Adidas</h3>
+                <p class="gallery-card__role">Direction éditoriale · affiche</p>
+              </div>
+            </article>
+          </div>
+          <div class="gallery__hud">
+            <p class="gallery__counter">Œuvre <span data-gallery-counter>01</span> / 09</p>
+            <p class="gallery__hint">↓ Scrollez pour avancer</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="prototype">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="label reveal">Prototype</p>
+          <h2 class="reveal">Maquette interactive.</h2>
+        </header>
+        <figure class="figma-frame reveal">
+          <div class="figma-frame__bar" aria-hidden="true">
+            <span class="figma-frame__dot"></span>
+            <span class="figma-frame__dot"></span>
+            <span class="figma-frame__dot"></span>
+            <span class="figma-frame__title">MERJ — Club · Figma</span>
+          </div>
+          <div class="figma-frame__viewport">
+            <iframe
+              src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fdesign%2FtmXTjR8s4vGQVqP08ZRdmp%2FMERJ---Club%3Fnode-id%3D0-1"
+              title="Maquette MERJ Club — Figma"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--film" id="film">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="label reveal">Vidéo</p>
+          <h2 class="reveal">Filtrée.</h2>
+        </header>
+        <figure class="film-frame reveal">
+          <video
+            src="assets/videos/filtree.mov"
+            controls
+            loop
+            playsinline
+            preload="metadata"
+            aria-label="Vidéo Filtrée"></video>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section section--podcast" id="podcast">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="label reveal">Podcast</p>
+          <h2 class="reveal">Une journée chez Morgane Production.</h2>
+        </header>
+        <figure class="podcast-frame reveal">
+          <div class="podcast-frame__cover" aria-hidden="true">
+            <span class="podcast-frame__waves">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </span>
+          </div>
+          <div class="podcast-frame__body">
+            <p class="podcast-frame__eyebrow label">Épisode</p>
+            <p class="podcast-frame__title">Une journée chez Morgane Production</p>
+            <audio
+              class="podcast-frame__player"
+              src="assets/audio/baglin-maelle-podcast.mp3"
+              controls
+              preload="metadata"
+              aria-label="Podcast Maëlle Baglin"></audio>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="tease container">
+      <div class="tease__grid">
+        <p class="tease__quote reveal">À présent, un exercice sur mesure pour Mazarine.</p>
+        <div class="tease__next reveal">
+          <span class="tease__next-label label">Chapitre suivant</span>
+          <a class="tease__next-link" href="etudes-de-cas.html">Étude de cas</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>© 2026 Maëlle Baglin — Candidature Mazarine Digital</span>
+      <span>maellepourmazarine.fr</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/particles.js"></script>
+</body>
+</html>
