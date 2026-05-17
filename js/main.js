@@ -1,19 +1,19 @@
 (() => {
   const root = document.documentElement;
 
-  /* Theme: read saved preference, fall back to dark. */
+  /* Theme: read saved preference, fall back to light. */
   const savedTheme = localStorage.getItem("mpm-theme");
-  if (savedTheme === "light") root.setAttribute("data-theme", "light");
+  if (savedTheme === "dark") root.setAttribute("data-theme", "dark");
 
   const themeToggle = document.querySelector("[data-theme-toggle]");
   themeToggle?.addEventListener("click", () => {
-    const isLight = root.getAttribute("data-theme") === "light";
-    if (isLight) {
+    const isDark = root.getAttribute("data-theme") === "dark";
+    if (isDark) {
       root.removeAttribute("data-theme");
-      localStorage.setItem("mpm-theme", "dark");
-    } else {
-      root.setAttribute("data-theme", "light");
       localStorage.setItem("mpm-theme", "light");
+    } else {
+      root.setAttribute("data-theme", "dark");
+      localStorage.setItem("mpm-theme", "dark");
     }
   });
 
