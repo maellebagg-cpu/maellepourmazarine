@@ -25,7 +25,7 @@
   --space-7: 9rem;
 
   --max-w: 1440px;
-  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --gutter: clamp(1.5rem, 4vw, 3rem);
 
   --t-fast: 200ms ease;
   --t-mid:  300ms ease;
@@ -444,7 +444,7 @@ body:has(main > .atelier-hero:first-child) .nav:not(.is-scrolled) .theme-toggle 
 
 /* ---------- Tease section (post-hero) ---------- */
 .tease {
-  padding: var(--space-7) 0;
+  padding: var(--space-7) clamp(2rem, 6vw, 5rem);
   position: relative;
   border-top: 1px solid var(--c-line);
 }
@@ -1327,6 +1327,7 @@ main > .case-hero {
   .book__page-photo { width: 100%; aspect-ratio: 4 / 3; margin-bottom: 0.6em; }
   .book__pagination { bottom: 0.6rem; right: 1rem; font-size: 0.65rem; }
   .book__cover-title { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+  .book__cover-hint { bottom: 0.6rem; }
   .book__nav-btn { width: 34px; height: 34px; }
   /* Page 1 — repasser en stack vertical sur mobile */
   .book__page[data-book-page="1"] {
@@ -1587,17 +1588,27 @@ a.reference__name:hover {
   }
 }
 @keyframes section-edge-blur {
-  0%   { filter: blur(10px); }
-  35%  { filter: blur(0); }
-  65%  { filter: blur(0); }
-  100% { filter: blur(10px); }
+  0%   { filter: blur(3px); }
+  20%  { filter: blur(0); }
+  80%  { filter: blur(0); }
+  100% { filter: blur(3px); }
 }
 @media (prefers-reduced-motion: reduce) {
   main > section { animation: none !important; filter: none !important; }
 }
 /* Sur mobile : pas de flou de transition entre sections (inconfortable au scroll rapide). */
 @media (max-width: 700px) {
-  main > section { animation: none !important; filter: none !important; }
+  main > section { animation: none !important; filter: none !important; will-change: auto !important; }
+  /* Animation reveal plus courte et plus discrète sur mobile pour éviter le smear visuel pendant le scroll. */
+  .reveal {
+    transform: translateY(14px);
+    transition-duration: 380ms;
+  }
+  .hero__title .char,
+  .hero__sub,
+  .hero__meta {
+    transition-duration: 400ms !important;
+  }
 }
 
 /* Timeline — horizontal-scroll-jacked CV strip */
@@ -2900,7 +2911,7 @@ a.reference__name:hover {
   .nav.is-open .nav__burger span:nth-child(2) { opacity: 0; }
   .nav.is-open .nav__burger span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
 
-  .tease { padding: var(--space-5) 0 var(--space-4); }
+  .tease { padding: var(--space-5) clamp(1.5rem, 5vw, 3rem) var(--space-4); }
   .tease__grid { grid-template-columns: 1fr; gap: var(--space-3); align-items: start; }
   .tease__quote { max-width: 100%; }
   .tease__next { justify-self: start; text-align: left; }
