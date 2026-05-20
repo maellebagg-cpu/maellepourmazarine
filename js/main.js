@@ -253,9 +253,30 @@
     timelineItems.forEach((it) => tlIO.observe(it));
   }
 
-  /* Book — cover swings open on click */
+  /* Book — cover swings open on click, pages flip with arrows */
   document.querySelectorAll("[data-book]").forEach((b) => {
-    b.addEventListener("click", () => b.classList.toggle("is-open"));
+    b.addEventListener("click", (e) => {
+      if (e.target.closest("[data-book-nav]")) return;
+      b.classList.toggle("is-open");
+    });
+
+    const pages = b.querySelectorAll("[data-book-page]");
+    const prevBtn = b.querySelector("[data-book-prev]");
+    const nextBtn = b.querySelector("[data-book-next]");
+    if (!pages.length || !prevBtn || !nextBtn) return;
+
+    let current = 0;
+    const go = (idx) => {
+      current = Math.max(0, Math.min(pages.length - 1, idx));
+      pages.forEach((p, i) => {
+        p.classList.toggle("is-current", i === current);
+        p.setAttribute("aria-hidden", i === current ? "false" : "true");
+      });
+      prevBtn.disabled = current === 0;
+      nextBtn.disabled = current === pages.length - 1;
+    };
+    prevBtn.addEventListener("click", (e) => { e.stopPropagation(); go(current - 1); });
+    nextBtn.addEventListener("click", (e) => { e.stopPropagation(); go(current + 1); });
   });
 
   /* Reveal on scroll */

@@ -48,8 +48,8 @@
     <section class="section section--about section--dark" id="about">
       <div class="container">
         <div class="book reveal" data-book>
-          <div class="book__pages">
-            <div class="book__page">
+          <div class="book__pages" data-book-pages>
+            <div class="book__page book__page--full">
               <h3 class="book__page-title">Vers la direction artistique.</h3>
               <div class="book__page-text">
                 <figure class="book__page-photo">
@@ -66,6 +66,43 @@
               </div>
               <span class="book__pagination" aria-hidden="true">1</span>
             </div>
+            <div class="book__page is-current" data-book-page="1">
+              <h3 class="book__page-title">Vers la direction artistique.</h3>
+              <figure class="book__page-photo">
+                <img src="assets/images/about-4046.jpg" alt="Maëlle Baglin" />
+              </figure>
+              <div class="book__page-text">
+                <p>Je suis étudiante en troisième année à l'EFAP, mais pour comprendre qui je suis, il faut remonter un peu plus loin.</p>
+                <p>Avant ça, j'ai fait trois ans de droit. Ce n'est pas un détour, c'est une fondation. Cette expérience m'a appris à structurer ma pensée, à être rigoureuse, à ne jamais avancer sans comprendre pourquoi. Ce sont des réflexes qui m'accompagnent encore aujourd'hui dans chaque projet.</p>
+                <p>J'ai aussi grandi dans une famille très créative. Mon arrière-grand-mère était peintre, et j'ai passé beaucoup de temps dans son atelier, j'ai donc voulu renouer avec cet héritage. C'est pourquoi j'ai décidé de me réorienter et d'entrer à l'EFAP.</p>
+              </div>
+              <span class="book__pagination" aria-hidden="true">1 / 3</span>
+            </div>
+            <div class="book__page" data-book-page="2" aria-hidden="true">
+              <h3 class="book__page-title">Un parcours qui se construit.</h3>
+              <div class="book__page-text">
+                <p>J'ai d'abord exploré le marketing digital, puis j'ai déménagé à Paris pour découvrir le milieu de l'audiovisuel. Cette expérience m'a transformée. J'ai aimé apprendre les coulisses d'un tournage, travailler en équipe et comprendre l'exigence de ces métiers.</p>
+                <p>En parallèle de mes études, j'ai eu l'occasion d'être manageuse d'une boutique Amorino. Jongler entre l'agenda scolaire et un poste à responsabilités m'a appris à m'organiser, à tenir le rythme et surtout à avoir un regard sur toute une chaîne de production.</p>
+                <p>Toutes ces expériences, je les garde avec moi. D'ailleurs, je continue de travailler occasionnellement pour les structures avec lesquelles j'ai effectué un stage.</p>
+              </div>
+              <span class="book__pagination" aria-hidden="true">2 / 3</span>
+            </div>
+            <div class="book__page" data-book-page="3" aria-hidden="true">
+              <h3 class="book__page-title">À ma place.</h3>
+              <div class="book__page-text">
+                <p>La direction artistique, ce n'est pas un choix par défaut, c'est la convergence de tout ce que j'ai traversé. Elle réunit l'exigence technique que j'ai appris à aimer, la créativité que j'ai toujours portée et une envie constante de cultiver ma curiosité en travaillant sur de nouveaux projets.</p>
+                <p>C'est à cette croisée des chemins que je me sens à ma place.</p>
+              </div>
+              <span class="book__pagination" aria-hidden="true">3 / 3</span>
+            </div>
+            <div class="book__nav" data-book-nav>
+              <button class="book__nav-btn" data-book-prev aria-label="Page précédente" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="book__nav-btn" data-book-next aria-label="Page suivante">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
           </div>
           <div class="book__cover">
             <div class="book__cover-face book__cover-face--front">
@@ -73,6 +110,7 @@
               <figure class="book__cover-photo">
                 <img src="assets/images/about-metro.jpg" alt="Portrait de Maëlle Baglin" />
               </figure>
+              <span class="book__cover-hint">Cliquez pour ouvrir</span>
             </div>
             <div class="book__cover-face book__cover-face--back"></div>
           </div>
@@ -204,7 +242,8 @@
           <article class="timeline-item">
             <div class="timeline-item__inner">
               <span class="timeline-item__date">Sept. 2025 — Janv. 2026 · 5 mois</span>
-              <h3 class="timeline-item__title">Stage en communication</h3>
+              <h3 class="timeline-item__title">Assistante chargée de communication</h3>
+              <span class="timeline-item__type">Stage</span>
               <p class="timeline-item__company">Morgane Production</p>
               <ul class="timeline-item__details">
                 <li>Gestion et animation des réseaux sociaux</li>
@@ -228,7 +267,8 @@
           <article class="timeline-item">
             <div class="timeline-item__inner">
               <span class="timeline-item__date">Déc. 2024 — Mars 2025 · 4 mois</span>
-              <h3 class="timeline-item__title">Stage en marketing digital</h3>
+              <h3 class="timeline-item__title">Assistante en marketing digital</h3>
+              <span class="timeline-item__type">Stage</span>
               <p class="timeline-item__company">Duc Factory</p>
               <ul class="timeline-item__details">
                 <li>Création et gestion de contenu e-commerce</li>
@@ -242,7 +282,7 @@
             <div class="timeline-item__inner">
               <span class="timeline-item__date">2023</span>
               <h3 class="timeline-item__title">Réalisation photos &amp; vidéos</h3>
-              <p class="timeline-item__company">Superbison.com</p>
+              <p class="timeline-item__company">super-bison.com</p>
               <ul class="timeline-item__details">
                 <li>Clips de lancement de collection</li>
                 <li>Shooting enfant été 2023</li>
@@ -252,13 +292,13 @@
           <article class="timeline-item">
             <div class="timeline-item__inner">
               <span class="timeline-item__date">2022 — Août 2025</span>
-              <h3 class="timeline-item__title">Manager</h3>
+              <h3 class="timeline-item__title">Responsable boutique</h3>
               <p class="timeline-item__company">Amorino</p>
               <ul class="timeline-item__details">
                 <li>Vendeuse (2022 – 2023)</li>
                 <li>Responsable (2023 – 2024)</li>
                 <li>Manager (2024 – août 2025)</li>
-                <li>Formation et encadrement des équipes</li>
+                <li>Formation et encadrement des équipes (10 personnes)</li>
                 <li>Gestion des plannings, stocks et commandes fournisseurs</li>
                 <li>Maîtrise des techniques de vente</li>
               </ul>

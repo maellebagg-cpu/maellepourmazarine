@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css?v=2" />
 </head>
 <body>
   <a href="#main" class="skip-link">Aller au contenu</a>
@@ -65,6 +65,8 @@
           <div class="logo-loop__item"><img src="assets/logos/adobepremierepro.svg" alt="Premiere Pro" /></div>
           <div class="logo-loop__item"><img src="assets/logos/adobeaftereffects.svg" alt="After Effects" /></div>
           <div class="logo-loop__item"><img src="assets/logos/figma.svg" alt="Figma" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/claude.svg" alt="Claude" /></div>
+          <div class="logo-loop__item"><img src="assets/logos/antigravity.svg" alt="Antigravity" /></div>
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobephotoshop.svg" alt="" /></div>
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobeindesign.svg" alt="" /></div>
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobexd.svg" alt="" /></div>
@@ -72,6 +74,8 @@
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobepremierepro.svg" alt="" /></div>
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/adobeaftereffects.svg" alt="" /></div>
           <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/figma.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/claude.svg" alt="" /></div>
+          <div class="logo-loop__item" aria-hidden="true"><img src="assets/logos/antigravity.svg" alt="" /></div>
         </div>
       </div>
       <hr class="logos__divider" aria-hidden="true" />
@@ -101,9 +105,10 @@
               <h2 class="reveal">Développement application pour le Louvre.</h2>
               <p class="louvre__hint reveal">Cliquez sur la maquette pour parcourir les écrans.</p>
               <div class="prose reveal">
-                <p>Ce projet de refonte du musée du Louvre s'appuie sur une approche UX centrée sur la fluidité du parcours utilisateur, transformant une interface initialement dense en une expérience immersive et intuitive.</p>
-                <p>En application, cette stratégie se traduit par une simplification drastique de l'architecture d'information et l'intégration de codes visuels minimalistes et prestigieux, visant à réduire la charge cognitive tout en respectant l'image de l'institution.</p>
-                <p>L'application mobile se distingue du site par des fonctionnalités complémentaires conçues pour l'accompagnement physique : elle propose une billetterie dématérialisée avec QR Code, un système de géolocalisation interactive pour s'orienter dans les galeries, ainsi qu'un mode <em>compagnon de visite</em> offrant des contenus audio et des parcours thématiques personnalisés en temps réel.</p>
+                <p>Dans le cadre de notre module d'UX Design, notre équipe a participé aux <em>NextGen UX Awards édition 2026 x EFAP Paris</em>. Sélectionné parmi plus de 80 équipes, notre projet consistait à concevoir une application mobile pour le Musée du Louvre selon une logique omnicanale.</p>
+                <p>La démarche a couvert l'ensemble du processus UX : audit du site web, entretiens réalisés directement devant le musée, analyse des avis en ligne, études de marché, construction des personae, benchmark concurrentiel, puis réalisation des wireframes et des maquettes. Chaque étape répondait à un même objectif : réduire les ruptures de contact avec les visiteurs et fluidifier leur parcours. Cette recommandation UX a exploré des problématiques d'accessibilité, de personnalisation et d'engagement, afin d'offrir une expérience cohérente entre les différents points de contact du musée.</p>
+                <p>Le projet repose sur une approche centrée sur la fluidité du parcours utilisateur, transformant une interface initialement dense en une expérience immersive et intuitive. Concrètement, cette stratégie passe par une simplification de l'architecture d'information et l'intégration de codes visuels minimalistes et prestigieux, visant à réduire la charge cognitive tout en respectant l'image de l'institution.</p>
+                <p>L'application mobile se distingue du site par des fonctionnalités complémentaires pensées pour l'accompagnement physique du visiteur : une billetterie dématérialisée avec QR Code, un système de géolocalisation interactive pour s'orienter dans les galeries, et un mode <em>compagnon de visite</em> proposant des contenus audio ainsi que des parcours thématiques personnalisés en temps réel.</p>
               </div>
             </div>
           </div>
@@ -177,9 +182,9 @@
                 <p class="gallery-card__role">Campagne WWF · Région Bretagne · 2024</p>
               </div>
             </article>
-            <article class="gallery-card gallery-card--photo" data-side="left" data-z="-6800" style="--z: -6800px; --rotation: 22deg;">
+            <article class="gallery-card gallery-card--photo gallery-card--concert" data-side="left" data-z="-6800" style="--z: -6800px; --rotation: 22deg;">
               <div class="gallery-card__media">
-                <img src="assets/images/atelier/concert.jpg" alt="Photographie de concert" loading="lazy" style="object-fit: cover; object-position: center 78%;" />
+                <img src="assets/images/atelier/concert.jpg?v=3" alt="Photographie de concert" loading="lazy" />
               </div>
               <div class="gallery-card__meta">
                 <h3 class="gallery-card__title">Scène</h3>
@@ -279,6 +284,20 @@
               aria-label="Podcast Maëlle Baglin"></audio>
           </div>
         </figure>
+      </div>
+    </section>
+
+    <section class="section section--coulisses" id="coulisses">
+      <div class="container section__inner">
+        <header class="section__head">
+          <p class="label reveal">Coulisses</p>
+          <h2 class="reveal">Autodidacte en vibe coding.</h2>
+        </header>
+        <aside class="coulisses-card reveal">
+          <p>L'idée derrière ce site : montrer en un seul lieu, l'ensemble de mes compétences. La direction artistique se lit dans chaque détail visuel. La partie technique : structure, responsive, interactions et animations font aussi partie du livrable.</p>
+          <p>Pour cela, je m'appuie sur deux outils maîtrisés en autodidacte : Claude Code (l'assistant IA d'Anthropic) et Antigravity (l'environnement de développement de Google). Je décris ce que je veux et Claude traduit mes demandes en code. Antigravity me permet de tester en direct et d'itérer rapidement.</p>
+          <p>C'est le principe du <em>vibe coding</em> : concevoir, diriger, vérifier, ajuster. Un site comme celui-ci, réalisé en une semaine serait inenvisageable sans cette nouvelle manière de travailler.</p>
+        </aside>
       </div>
     </section>
 

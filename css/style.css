@@ -206,6 +206,33 @@ body:has(main > .section--dark:first-child) .nav:not(.is-scrolled) .nav__link.is
 body:has(main > .section--dark:first-child) .nav:not(.is-scrolled) .nav__link { color: rgba(255, 255, 255, 0.7); }
 body:has(main > .section--dark:first-child) .nav:not(.is-scrolled) .nav__link:hover { color: #ffffff; }
 body:has(main > .section--dark:first-child) .nav:not(.is-scrolled) .theme-toggle { color: #ffffff; border-color: rgba(255, 255, 255, 0.25); }
+body:has(main > .section--dark:first-child) .nav:not(.is-scrolled) .nav__burger span { background: #ffffff; }
+
+/* Menu mobile ouvert — comportement universel pour toutes les pages :
+   panneau opaque (var(--c-bg)) + tous les textes/icônes en bleu pour
+   garantir la lisibilité quel que soit le fond derrière. */
+.nav.is-open,
+.nav.is-open.is-scrolled {
+  background: var(--c-bg) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom-color: transparent !important;
+}
+.nav.is-open .nav__list {
+  background: var(--c-bg);
+  border-left-color: transparent;
+}
+.nav.is-open .nav__link,
+.nav.is-open .nav__link.is-active,
+.nav.is-open .nav__brand {
+  color: #0000ff !important;
+}
+.nav.is-open .nav__link::after { background: #0000ff; }
+.nav.is-open .nav__burger span { background: #0000ff !important; }
+.nav.is-open .theme-toggle {
+  color: #0000ff !important;
+  border-color: rgba(0, 0, 255, 0.35) !important;
+}
 
 /* Case-study hero: solid night-blue header with white type before any scroll;
    the existing .nav.is-scrolled rule takes back over once the user scrolls. */
@@ -886,11 +913,13 @@ body:has(main > .atelier-hero:first-child) .nav:not(.is-scrolled) .theme-toggle 
 .case-hero__page--campagne h2 { color: #ffffff; }
 
 @media (max-width: 700px) {
-  .case-hero { height: auto; }
-  .case-hero__sticky { position: relative; height: 100vh; }
-  .case-hero__page { position: relative; height: auto; padding: var(--space-6) 0; }
-  .case-hero__page--title { top: auto; }
-  .case-hero__page--content { top: auto; }
+  /* On garde la mécanique sticky/parallax desktop sur mobile.
+     On augmente juste la hauteur pour que les blocs de texte aient le temps
+     d'apparaître séparément (texte plus haut quand il wrap sur mobile). */
+  .case-hero { height: 320vh; }
+  .case-hero__page--concept { top: 110vh; }
+  .case-hero__page--campagne { top: 220vh; padding-top: 0; }
+  .case-hero__credit { top: 305vh; }
 }
 /* Keep the hero sharp — exclude it from the global section-edge blur. */
 main > .case-hero {
@@ -1034,6 +1063,15 @@ main > .case-hero {
   color: #2a2218;
   display: flex;
   flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease;
+  z-index: 1;
+}
+.book__page.is-current {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
 }
 .book__page-title {
   font-family: var(--font-display);
@@ -1052,7 +1090,7 @@ main > .case-hero {
   hyphens: auto;
   column-count: 2;
   column-gap: clamp(1.4rem, 3vw, 2.4rem);
-  column-fill: auto;
+  column-fill: balance;
 }
 .book__page-text p {
   margin: 0 0 0.65em 0;
@@ -1062,8 +1100,8 @@ main > .case-hero {
   margin-bottom: 0;
 }
 .book__page-photo {
-  margin: 0 0 0.8em 0;
-  width: 100%;
+  margin: 0 0 clamp(0.8rem, 1.6%, 1.2rem) 0;
+  width: 55%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   background: #f0e8d8;
@@ -1074,6 +1112,66 @@ main > .case-hero {
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* Desktop : page unique avec photo + tout le texte en 2 colonnes (layout d'origine) */
+.book__page--full {
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+}
+.book__page--full .book__page-photo {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  margin: 0 0 0.8em 0;
+}
+.book__page--full .book__page-text {
+  column-count: 2;
+  column-fill: balance;
+}
+
+/* Layouts spécifiques aux pages paginées — mobile uniquement */
+@media (max-width: 700px) {
+  /* Page 1 — photo à gauche, texte à droite (override par le bloc mobile plus bas en stack vertical) */
+  .book__page[data-book-page="1"] {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    grid-template-rows: auto 1fr;
+    column-gap: clamp(1.2rem, 3%, 2.4rem);
+  }
+  .book__page[data-book-page="1"] .book__page-title {
+    grid-column: 1 / -1;
+  }
+  .book__page[data-book-page="1"] .book__page-photo {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: auto;
+    margin: 0;
+    align-self: center;
+  }
+  .book__page[data-book-page="1"] .book__page-text {
+    column-count: 1;
+    align-self: center;
+  }
+
+  /* Pages 2 & 3 — titre + texte centrés verticalement comme un bloc, 1 colonne */
+  .book__page[data-book-page="2"],
+  .book__page[data-book-page="3"] {
+    justify-content: center;
+  }
+  .book__page[data-book-page="2"] .book__page-title,
+  .book__page[data-book-page="3"] .book__page-title {
+    margin: 0 auto 0.6rem auto;
+    max-width: 82%;
+    width: 100%;
+  }
+  .book__page[data-book-page="2"] .book__page-text,
+  .book__page[data-book-page="3"] .book__page-text {
+    flex: none;
+    column-count: 1;
+    max-width: 82%;
+    margin: 0 auto;
+  }
 }
 .book__pagination {
   position: absolute;
@@ -1151,14 +1249,96 @@ main > .case-hero {
   background: #ffffff;
   transform: rotateY(180deg);
 }
+.book__cover-hint {
+  position: absolute;
+  bottom: clamp(1.2rem, 4%, 2.2rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(0.65rem, 0.85vw, 0.78rem);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #5a4a30;
+  white-space: nowrap;
+  opacity: 0.75;
+  animation: book-hint-pulse 2.2s ease-in-out infinite;
+}
+@keyframes book-hint-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+}
 .book.is-open .book__cover {
   transform: rotateY(-176deg);
 }
+/* Page navigation — arrows pinned bottom-center of the spread */
+.book__nav {
+  position: absolute;
+  bottom: clamp(0.6rem, 1.6%, 1.1rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 4;
+  pointer-events: auto;
+}
+.book__nav-btn {
+  width: clamp(28px, 3vw, 36px);
+  height: clamp(28px, 3vw, 36px);
+  border-radius: 50%;
+  border: 1px solid rgba(10, 10, 10, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  color: #2a2218;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+.book__nav-btn:hover:not(:disabled) {
+  background: #0000ff;
+  color: #fff;
+  border-color: #0000ff;
+}
+.book__nav-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+.book__nav-btn svg {
+  width: 60%;
+  height: 60%;
+}
+
+/* Desktop : afficher uniquement la page unique, cacher pages paginées + nav */
+@media (min-width: 701px) {
+  .book__page[data-book-page] { display: none; }
+  .book__nav { display: none; }
+}
+/* Mobile : cacher la page desktop unique */
 @media (max-width: 700px) {
-  .book { aspect-ratio: 1.1 / 1; }
-  .book__page { padding: 1.2rem 1rem 1.6rem 1.6rem; }
-  .book__page-text { font-size: 0.78rem; column-count: 1; }
+  .book__page--full { display: none; }
+}
+
+@media (max-width: 700px) {
+  .book { aspect-ratio: 0.78 / 1; width: 92%; }
+  .book__page { padding: 1.2rem 1rem 2.6rem 1.6rem; }
+  .book__page-title { font-size: 1rem; margin-bottom: 0.8rem; }
+  .book__page-text { font-size: 0.82rem; column-count: 1; line-height: 1.5; }
+  .book__page-photo { width: 100%; aspect-ratio: 4 / 3; margin-bottom: 0.6em; }
+  .book__pagination { bottom: 0.6rem; right: 1rem; font-size: 0.65rem; }
   .book__cover-title { font-size: clamp(1.2rem, 5vw, 1.8rem); }
+  .book__nav-btn { width: 34px; height: 34px; }
+  /* Page 1 — repasser en stack vertical sur mobile */
+  .book__page[data-book-page="1"] {
+    display: flex;
+  }
+  .book__page[data-book-page="1"] .book__page-photo {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+  .book__page[data-book-page="1"] .book__page-text {
+    column-count: 1;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .book__cover { transition: none; }
@@ -1399,7 +1579,7 @@ a.reference__name:hover {
    and resolve sharp once centered. Skipped on scroll-jacked sections
    (timeline, atelier gallery) where the user is held in place. */
 @supports (animation-timeline: view()) {
-  main > section:not(.section--timeline):not(#realisations):not(.section--moodboard):not(.case-hero) {
+  main > section:not(.section--timeline):not(#realisations):not(.section--moodboard):not(.case-hero):not(.page-intro) {
     animation: section-edge-blur linear both;
     animation-timeline: view();
     animation-range: cover 0% cover 100%;
@@ -1413,6 +1593,10 @@ a.reference__name:hover {
   100% { filter: blur(10px); }
 }
 @media (prefers-reduced-motion: reduce) {
+  main > section { animation: none !important; filter: none !important; }
+}
+/* Sur mobile : pas de flou de transition entre sections (inconfortable au scroll rapide). */
+@media (max-width: 700px) {
   main > section { animation: none !important; filter: none !important; }
 }
 
@@ -1533,6 +1717,16 @@ a.reference__name:hover {
   margin: 0;
   letter-spacing: -0.01em;
 }
+.timeline-item__type {
+  display: inline-block;
+  margin-top: 0.4em;
+  font-family: var(--font-display);
+  font-size: 0.65rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--c-text-mute);
+  opacity: 0.7;
+}
 .timeline-item__company {
   font-size: clamp(0.85rem, 1vw, 1rem);
   color: var(--c-text-mute);
@@ -1597,20 +1791,56 @@ a.reference__name:hover {
 }
 @media (max-width: 700px) {
   .section--timeline { height: auto; }
-  .timeline-sticky { position: static; height: auto; }
-  .timeline-track {
-    flex-direction: column;
-    padding: var(--space-3) var(--space-2) var(--space-5);
-    gap: var(--space-5);
-    transform: none !important;
-  }
-  .timeline-track::before {
+  .timeline-sticky { position: static; height: auto; overflow: visible; }
+  .timeline-stage { padding: 0; }
+  /* Ligne verticale à gauche au lieu de la ligne horizontale */
+  .timeline-line {
     left: 18px; right: auto;
     top: 0; bottom: 0;
-    width: 1px; height: auto;
+    transform: none;
+    width: 2px;
+    height: auto;
   }
-  .timeline-item { padding-top: 0; padding-left: 36px; flex: 1 1 auto; }
-  .timeline-item::before { top: 6px; left: 13px; }
+  .timeline-track {
+    flex-direction: column;
+    align-items: stretch;
+    padding: var(--space-3) var(--space-3) var(--space-5) 0;
+    gap: var(--space-4);
+    transform: none !important;
+  }
+  /* Chaque item dans le flux normal, padding gauche pour la ligne + pastille */
+  .timeline-item {
+    flex: 0 0 auto;
+    height: auto;
+    padding-left: 44px;
+  }
+  /* Pastille alignée en haut à gauche de chaque item */
+  .timeline-item::before {
+    top: 8px;
+    left: 8px;
+    transform: none;
+    width: 18px;
+    height: 18px;
+    outline-width: 4px;
+  }
+  .timeline-item.is-open::before {
+    transform: scale(1.3);
+  }
+  /* Le contenu n'est plus en position absolute, il flow normalement */
+  .timeline-item__inner,
+  .timeline-item:nth-child(odd) .timeline-item__inner,
+  .timeline-item:nth-child(even) .timeline-item__inner {
+    position: static;
+    top: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    display: block;
+  }
+  .timeline-item__date { font-size: 0.7rem; margin-bottom: 0.4rem; }
+  .timeline-item__title { font-size: 1.05rem; }
+  .timeline-item__company { font-size: 0.85rem; margin-bottom: 0.6rem; }
+  .timeline-item__details { font-size: 0.82rem; }
 }
 
 /* Univers — vertical photo grid (3 per row), sized to stay visible in viewport */
@@ -1847,6 +2077,14 @@ a.reference__name:hover {
 .gallery-card--photo .gallery-card__media img {
   object-fit: cover;
   object-position: center 45%;
+}
+.gallery-card--concert .gallery-card__media img {
+  object-position: center bottom !important;
+}
+.gallery-card--concert .gallery-card__media {
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .gallery-card--video .gallery-card__media video {
   object-fit: cover;
@@ -2103,6 +2341,34 @@ a.reference__name:hover {
 }
 @media (prefers-reduced-motion: reduce) {
   .podcast-frame__waves span { animation: none; transform: scaleY(0.7); }
+}
+
+/* ---------- Coulisses (Atelier — encadré démarche vibe coding) ---------- */
+.section--coulisses {
+  padding: var(--space-5) 0 var(--space-6);
+}
+.coulisses-card {
+  max-width: 760px;
+  margin: var(--space-3) auto 0;
+  padding: clamp(1.4rem, 3vw, 2.2rem) clamp(1.4rem, 3vw, 2.4rem);
+  border: 1px solid #000000;
+  border-radius: 4px;
+  background: #000000;
+}
+.coulisses-card p {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: #ffffff;
+  margin: 0 0 0.9em 0;
+}
+.coulisses-card p:last-child { margin-bottom: 0; }
+.coulisses-card em {
+  font-style: italic;
+  color: #ffffff;
+}
+@media (max-width: 700px) {
+  .coulisses-card { padding: 1.2rem 1.1rem; }
+  .coulisses-card p { font-size: 0.88rem; }
 }
 
 /* ---------- Logo loop (Atelier — outils favoris) ---------- */
@@ -2538,33 +2804,7 @@ a.reference__name:hover {
   object-fit: cover;
   display: block;
 }
-@media (max-width: 700px) {
-  .section--moodboard { height: auto; }
-  .moodboard-stage { position: relative; height: auto; padding: var(--space-6) 0 var(--space-5); }
-  .moodboard-stage__head { position: relative; top: auto; }
-  .moodboard-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 32vw;
-    gap: 0.6rem;
-    width: 92vw;
-    aspect-ratio: auto;
-    transform: none !important;
-  }
-  .moodboard-grid__item,
-  .moodboard-grid__item--lotus {
-    position: relative;
-    top: auto !important;
-    left: auto !important;
-    width: 100% !important;
-    height: 100% !important;
-    transform: none !important;
-  }
-  .moodboard-grid__item--lotus {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-}
+/* L'animation 3D du moodboard s'applique aussi sur mobile (pas d'override). */
 @media (prefers-reduced-motion: reduce) {
   .moodboard-grid { transform: none !important; }
 }
