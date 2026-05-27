@@ -1925,6 +1925,31 @@ a.reference__name:hover {
   .flip-card { transition: none; }
 }
 
+@media (max-width: 700px) {
+  .univers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: auto;
+    aspect-ratio: auto;
+    max-height: none;
+    width: 100%;
+    gap: 0.6rem;
+  }
+  .univers-grid__item {
+    aspect-ratio: 3 / 4;
+  }
+  .flip-card__face--back {
+    padding: 0.8rem 0.9rem;
+  }
+  .flip-card__name {
+    font-size: 0.82rem;
+    margin-bottom: 0.5em;
+  }
+  .flip-card__text {
+    font-size: 0.74rem;
+    line-height: 1.4;
+  }
+}
+
 /* Contact cards — flip on hover (front = icon, back = label + value) */
 .contact-cards {
   list-style: none;
